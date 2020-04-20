@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+const httpClient = axios.create();
+httpClient.defaults.timeout = 500;
+
 class Receipt extends Component{
     
     state = { 
@@ -9,11 +12,7 @@ class Receipt extends Component{
         items: []
     };
 
-    componentDidMount() {
-        this.getlastData();
-    }
-
-    getlastData() {
+    async componentDidMount() {
         return axios.get(`https://pizza-apiv10.herokuapp.com/api/lastinsert`).then(res => {
             this.setState({ carts: res.data });
             this.setState({ items: JSON.parse(res.data[0].items)});

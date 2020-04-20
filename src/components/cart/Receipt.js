@@ -13,10 +13,6 @@ class Receipt extends Component{
         this.getlastData();
     }
 
-    componentDidUpdate() {
-        this.getlastData();
-    }
-
     getlastData() {
         return axios.get(`https://pizza-apiv10.herokuapp.com/api/lastinsert`).then(res => {
             this.setState({ carts: res.data });

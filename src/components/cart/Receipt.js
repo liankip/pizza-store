@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-const httpClient = axios.create();
-httpClient.defaults.timeout = 500;
-
 class Receipt extends Component{
     
     state = { 

@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const httpClient = axios.create();
-httpClient.defaults.timeout = 500;
-
 class Checkout extends Component{
     
     state = {
@@ -17,7 +14,7 @@ class Checkout extends Component{
     };
 
     saveOrder = e => {
-        return httpClient.post(`https://pizza-apiv10.herokuapp.com/api/orders`,  {
+        return axios.post(`https://pizza-apiv10.herokuapp.com/api/orders`,  {
             code: 'pizz-' + Math.floor(Math.random() * 2000) + 1,
             user_id: localStorage.getItem('user_id') || 3,
             items: JSON.stringify(this.props.items),

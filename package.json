@@ -15,13 +15,11 @@
     "redux": "^4.0.1"
   },
   "scripts": {
-  "build:tailwind": "tailwindcss build src/tailwind.css -o src/tailwind.generated.css",
-  "prestart": "npm run build:tailwind",
-  "prebuild": "npm run build:tailwind",
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject"
+    "tailwind:css": "tailwind build src/css/tailwind.src.css -c  tailwind.js -o src/css/tailwind.css",
+    "start": "npm run tailwind:css && react-scripts start",
+    "build": "npm run tailwind:css && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
